@@ -19,7 +19,6 @@ function shuffle(questions) {
 }   
 
 
-
 function displayQuestion() {
     const currentQuestion = questions[current];
     dispQ.textContent = currentQuestion.question;
