@@ -21,6 +21,17 @@ const score = document.getElementById("score");
 
 
 
+function shuffle(questions) {
+    let crr = questions.length;
+    while (crr != 0) {
+        let random = Math.floor(Math.random() * crr);
+        crr--;
+        [questions[crr], questions[random]] = [questions[random], questions[crr]];
+    }
+}   
+
+
+
 function displayQuestion() {
     const currentQuestion = questions[current];
     dispQ.textContent = currentQuestion.question;
@@ -29,7 +40,7 @@ function displayQuestion() {
 function checkAnswer(isTrue) {
     const correctAnswer = questions[current].answer;
 
-    if (isTrue === correctAnswer) {
+    if (isTrue === correctAnswer) { 
         resulta++;
     }
 
@@ -50,4 +61,6 @@ function showResult() {
 trueQuestion.addEventListener("click", () => checkAnswer(true));
 falsQuestion.addEventListener("click", () => checkAnswer(false));
 
+
+shuffle(questions);
 displayQuestion();
